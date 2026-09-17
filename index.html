@@ -12,33 +12,33 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #08080a;
+            background-color: #0d0d0d;
             color: #ffffff;
             line-height: 1.6;
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* Đốm sáng nền neon lung linh đa màu */
+        /* Đốm sáng nền lung linh */
         body::before {
             content: '';
             position: fixed;
-            top: -15%;
+            top: -10%;
             left: -10%;
-            width: 45vw;
-            height: 45vw;
-            background: radial-gradient(circle, rgba(255, 0, 127, 0.15) 0%, rgba(8, 8, 10, 0) 70%);
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(255, 51, 51, 0.12) 0%, rgba(13, 13, 13, 0) 70%);
             z-index: -1;
             pointer-events: none;
         }
         body::after {
             content: '';
             position: fixed;
-            bottom: -15%;
+            bottom: -10%;
             right: -10%;
-            width: 45vw;
-            height: 45vw;
-            background: radial-gradient(circle, rgba(0, 245, 255, 0.12) 0%, rgba(8, 8, 10, 0) 70%);
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(255, 153, 51, 0.08) 0%, rgba(13, 13, 13, 0) 70%);
             z-index: -1;
             pointer-events: none;
         }
@@ -49,29 +49,29 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background-color: rgba(14, 14, 18, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid #1f1f2e;
+            background-color: rgba(22, 22, 22, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #222222;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
-        /* Logo MLK 3 màu Neon rực rỡ */
+        /* Logo MLK Gradient */
         .logo {
             font-size: 32px;
             font-weight: 800;
-            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            background: linear-gradient(135deg, #ff3333, #ff9933);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 3px;
-            filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.6));
+            filter: drop-shadow(0 0 10px rgba(255, 51, 51, 0.5));
             transition: 0.3s;
             text-decoration: none;
         }
         .logo:hover {
-            filter: drop-shadow(0 0 22px rgba(0, 245, 255, 0.9));
+            filter: drop-shadow(0 0 18px rgba(255, 153, 51, 0.8));
         }
 
         nav ul {
@@ -103,7 +103,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, #ff007f, #00f5ff);
+            background: linear-gradient(90deg, #ffffff, #ffccd5);
             transition: transform 0.4s ease;
             z-index: -1;
             border-radius: 20px;
@@ -114,15 +114,15 @@
         }
 
         nav ul li a:hover {
-            color: #00f5ff;
-            border-color: #00f5ff;
+            color: #ff3333;
+            border-color: #ff3333;
             transform: translateY(-3px);
         }
 
         nav ul li a.active {
-            color: #ff007f;
-            border-color: #ff007f;
-            background-color: rgba(255, 0, 127, 0.08);
+            color: #ff3333;
+            border-color: #ff3333;
+            background-color: rgba(255, 51, 51, 0.08);
         }
 
         .page-section {
@@ -131,7 +131,7 @@
             flex-direction: column;
             justify-content: center;
             padding: 60px 6%;
-            border-bottom: 1px solid #161622;
+            border-bottom: 1px solid #1a1a1a;
         }
 
         /* Home Section */
@@ -150,12 +150,11 @@
             max-width: 650px;
         }
         .hero-content h3 {
-            color: #00f5ff;
+            color: #ff9933;
             font-size: 16px;
             margin-bottom: 6px;
             letter-spacing: 1px;
             font-weight: 600;
-            text-shadow: 0 0 10px rgba(0, 245, 255, 0.4);
         }
         .hero-content h1 {
             font-size: 42px;
@@ -164,32 +163,34 @@
             line-height: 1.2;
         }
         
+        /* Hiệu ứng gõ chữ cho dòng câu chào */
         #typing-title {
             display: block;
             min-height: 50px;
         }
 
-        /* Dòng I am MLK mang 3 màu Neon rực rỡ liên tục */
+        /* Dòng chữ I am MLK giữ nguyên gradient cố định bên dưới */
         .hero-content .static-name {
             display: block;
             margin-top: 5px;
-            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+        }
+        .hero-content .static-name span {
+            background: linear-gradient(135deg, #ff3333, #ff6666);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.7));
-            font-weight: 800;
+            filter: drop-shadow(0 0 12px rgba(255, 51, 51, 0.5));
         }
 
         .hero-bio {
-            background: linear-gradient(145deg, #14141c, #1a1a26);
-            border-left: 3px solid #ff007f;
+            background: linear-gradient(145deg, #161616, #1c1c1c);
+            border-left: 3px solid #ff3333;
             padding: 14px 20px;
             border-radius: 0 12px 12px 0;
             margin-bottom: 20px;
             color: #dddddd;
             font-size: 14px;
             line-height: 1.6;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
         .hero-stats {
@@ -198,8 +199,8 @@
             margin-bottom: 18px;
         }
         .stat-box {
-            background: #14141c;
-            border: 1px solid #222233;
+            background: #161616;
+            border: 1px solid #262626;
             padding: 12px 18px;
             border-radius: 12px;
             text-align: center;
@@ -207,18 +208,17 @@
             transition: 0.3s;
         }
         .stat-box:hover {
-            border-color: #00f5ff;
+            border-color: #ff3333;
             transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0, 245, 255, 0.25);
+            box-shadow: 0 5px 15px rgba(255, 51, 51, 0.2);
         }
         .stat-box h2 {
-            color: #ff007f;
+            color: #ff3333;
             font-size: 22px;
             margin-bottom: 4px;
-            text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
         }
         .stat-box p {
-            color: #9999bb;
+            color: #999;
             font-size: 12px;
             margin: 0;
         }
@@ -231,19 +231,18 @@
         }
 
         .skill-popup-display {
-            background: #14141c;
-            border: 1px dashed #00f5ff;
+            background: #161616;
+            border: 1px dashed #ff3333;
             padding: 10px 18px;
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 13px;
-            color: #00f5ff;
+            color: #ff9933;
             display: inline-block;
             opacity: 0;
             transform: translateY(-10px);
             transition: 0.4s ease;
             pointer-events: none;
-            box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
         }
         .skill-popup-display.show {
             opacity: 1;
@@ -258,19 +257,19 @@
         }
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #ff007f, #9d4edd);
+            background: linear-gradient(135deg, #ff3333, #cc0000);
             color: #ffffff;
             padding: 10px 24px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0 4px 20px rgba(255, 0, 127, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 51, 51, 0.4);
         }
         .btn:hover {
-            background: linear-gradient(135deg, #ff1a8c, #aa55ef);
+            background: linear-gradient(135deg, #ff4d4d, #e60000);
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(255, 0, 127, 0.7);
+            box-shadow: 0 6px 20px rgba(255, 51, 51, 0.6);
         }
 
         .hero-img-container {
@@ -280,19 +279,18 @@
         .hero-box {
             width: 320px;
             height: 360px;
-            background: #14141c;
-            border: 2px solid #ff007f;
+            background: #161616;
+            border: 2px solid #ff3333;
             border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(255, 0, 127, 0.4);
+            box-shadow: 0 0 35px rgba(255, 51, 51, 0.35);
             transition: 0.4s ease;
         }
         .hero-box:hover {
-            border-color: #00f5ff;
-            box-shadow: 0 0 55px rgba(0, 245, 255, 0.6);
+            box-shadow: 0 0 50px rgba(255, 153, 51, 0.5);
             transform: scale(1.02);
         }
         .hero-box img {
@@ -305,21 +303,20 @@
             position: absolute;
             bottom: -15px;
             left: 20px;
-            background: #181824;
-            border: 1px solid #00f5ff;
+            background: #1c1c1c;
+            border: 1px solid #ff3333;
             padding: 8px 16px;
             border-radius: 10px;
             font-size: 13px;
             font-weight: bold;
             color: #fff;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             display: flex;
             align-items: center;
             gap: 8px;
         }
         .floating-badge span {
-            color: #00f5ff;
-            text-shadow: 0 0 8px rgba(0, 245, 255, 0.6);
+            color: #ff9933;
         }
 
         /* About Section */
@@ -333,13 +330,13 @@
             text-align: center;
         }
         .section-about h2 {
-            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            background: linear-gradient(135deg, #ff3333, #ff9933);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 25px;
             font-size: 36px;
             font-weight: 800;
-            filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.6));
+            filter: drop-shadow(0 0 12px rgba(255, 51, 51, 0.5));
         }
         .about-text {
             max-width: 800px;
@@ -363,8 +360,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: #14141c;
-            border: 1px solid #222233;
+            background: #161616;
+            border: 1px solid #262626;
             padding: 14px 22px;
             border-radius: 14px;
             color: #ffffff;
@@ -381,49 +378,49 @@
             transition: 0.3s ease;
         }
 
-        /* Hiệu ứng mạng xã hội */
+        /* Hiệu ứng màu sắc khi hover */
         .social-btn.github-btn:hover {
             border-color: #f0f6fc;
-            background-color: rgba(240, 246, 252, 0.12);
+            background-color: rgba(240, 246, 252, 0.1);
             color: #f0f6fc;
             transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(240, 246, 252, 0.3);
+            box-shadow: 0 6px 20px rgba(240, 246, 252, 0.25);
         }
         .social-btn.github-btn:hover svg { fill: #f0f6fc; }
 
         .social-btn.fb-btn:hover {
             border-color: #1877f2;
-            background-color: rgba(24, 119, 242, 0.15);
+            background-color: rgba(24, 119, 242, 0.12);
             color: #1877f2;
             transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(24, 119, 242, 0.35);
+            box-shadow: 0 6px 20px rgba(24, 119, 242, 0.3);
         }
         .social-btn.fb-btn:hover svg { fill: #1877f2; }
 
         .social-btn.ig-btn:hover {
             border-color: #e4405f;
-            background-color: rgba(228, 64, 95, 0.15);
+            background-color: rgba(228, 64, 95, 0.12);
             color: #e4405f;
             transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(228, 64, 95, 0.35);
+            box-shadow: 0 6px 20px rgba(228, 64, 95, 0.3);
         }
         .social-btn.ig-btn:hover svg { fill: #e4405f; }
 
         .social-btn.tt-btn:hover {
             border-color: #00f2fe;
-            background-color: rgba(0, 242, 254, 0.15);
+            background-color: rgba(0, 242, 254, 0.12);
             color: #00f2fe;
             transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.35);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.3);
         }
         .social-btn.tt-btn:hover svg { fill: #00f2fe; }
 
         .social-btn.yt-btn:hover {
             border-color: #ff0000;
-            background-color: rgba(255, 0, 0, 0.15);
+            background-color: rgba(255, 0, 0, 0.12);
             color: #ff0000;
             transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.35);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
         }
         .social-btn.yt-btn:hover svg { fill: #ff0000; }
 
@@ -434,13 +431,13 @@
             width: 100%;
         }
         .section-projects h2 {
-            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            background: linear-gradient(135deg, #ff3333, #ff9933);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 30px;
             font-size: 32px;
             font-weight: 800;
-            filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.5));
+            filter: drop-shadow(0 0 10px rgba(255, 51, 51, 0.4));
         }
         .card-grid {
             display: grid;
@@ -448,22 +445,21 @@
             gap: 30px;
         }
         .card {
-            background: linear-gradient(145deg, #14141c, #1a1a26);
+            background: linear-gradient(145deg, #161616, #1c1c1c);
             padding: 30px;
             border-radius: 14px;
-            border: 1px solid #222233;
+            border: 1px solid #222;
             transition: 0.3s;
         }
         .card:hover {
-            border-color: #00f5ff;
+            border-color: #ff3333;
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 245, 255, 0.25);
+            box-shadow: 0 8px 25px rgba(255, 51, 51, 0.25);
         }
         .card h3 {
             margin-bottom: 12px;
             font-size: 22px;
-            color: #00f5ff;
-            text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
+            color: #ff9933;
         }
         .card p {
             color: #aaa;
@@ -471,16 +467,15 @@
             margin-bottom: 20px;
         }
         .card a {
-            color: #ff007f;
+            color: #ff3333;
             text-decoration: none;
             font-size: 15px;
             font-weight: bold;
             transition: 0.2s;
         }
         .card a:hover {
-            color: #00f5ff;
+            color: #ff9933;
             text-decoration: underline;
-            text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
         }
 
         /* Contact Section */
@@ -496,13 +491,13 @@
             align-items: center;
         }
         .contact-left h2 {
-            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            background: linear-gradient(135deg, #ff3333, #ff9933);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
             font-size: 36px;
             font-weight: 800;
-            filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.6));
+            filter: drop-shadow(0 0 12px rgba(255, 51, 51, 0.5));
         }
         .contact-left p {
             color: #cccccc;
@@ -514,8 +509,8 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: #14141c;
-            border: 1px solid #222233;
+            background: #161616;
+            border: 1px solid #262626;
             padding: 16px 24px;
             border-radius: 14px;
             color: #ffffff;
@@ -528,43 +523,42 @@
         .email-card-btn svg {
             width: 24px;
             height: 24px;
-            fill: #ff007f;
-            filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.6));
+            fill: #ff3333;
         }
         .email-card-btn:hover {
-            border-color: #00f5ff;
-            background-color: rgba(0, 245, 255, 0.12);
-            color: #00f5ff;
+            border-color: #ff3333;
+            background-color: rgba(255, 51, 51, 0.12);
+            color: #ff9933;
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(0, 245, 255, 0.35);
+            box-shadow: 0 6px 20px rgba(255, 51, 51, 0.35);
         }
         .email-card-btn:hover svg {
-            fill: #00f5ff;
+            fill: #ff9933;
         }
 
         .contact-right {
-            background: linear-gradient(145deg, #14141c, #1a1a26);
-            border: 1px solid #222233;
+            background: linear-gradient(145deg, #161616, #1c1c1c);
+            border: 1px solid #222;
             padding: 35px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         .contact-right h3 {
-            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            background: linear-gradient(135deg, #ff3333, #ff9933);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 26px;
             font-weight: 700;
             margin-bottom: 25px;
-            filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.5));
+            filter: drop-shadow(0 0 10px rgba(255, 51, 51, 0.4));
         }
         .form-group {
             margin-bottom: 20px;
         }
         .form-control {
             width: 100%;
-            background: #08080a;
-            border: 1px solid #222233;
+            background: #0d0d0d;
+            border: 1px solid #2a2a2a;
             padding: 14px 18px;
             border-radius: 10px;
             color: #ffffff;
@@ -573,8 +567,8 @@
             transition: 0.3s;
         }
         .form-control:focus {
-            border-color: #00f5ff;
-            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+            border-color: #ff3333;
+            box-shadow: 0 0 12px rgba(255, 51, 51, 0.3);
         }
         textarea.form-control {
             resize: vertical;
@@ -582,7 +576,7 @@
         }
         .submit-btn {
             width: 100%;
-            background: linear-gradient(135deg, #ff007f, #9d4edd);
+            background: linear-gradient(135deg, #ff3333, #cc0000);
             color: #ffffff;
             border: none;
             padding: 14px;
@@ -591,22 +585,22 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 4px 20px rgba(255, 0, 127, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 51, 51, 0.4);
         }
         .submit-btn:hover {
-            background: linear-gradient(135deg, #ff1a8c, #aa55ef);
+            background: linear-gradient(135deg, #ff4d4d, #e60000);
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(255, 0, 127, 0.7);
+            box-shadow: 0 6px 20px rgba(255, 51, 51, 0.6);
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 30px;
-            background-color: #14141c;
-            color: #666688;
+            background-color: #161616;
+            color: #666;
             font-size: 14px;
-            border-top: 1px solid #1f1f2e;
+            border-top: 1px solid #1a1a1a;
         }
     </style>
 </head>
@@ -631,9 +625,10 @@
             <div class="hero-content">
                 <h3>Welcome</h3>
                 
+                <!-- Tiêu đề gõ chữ tự động hoàn hảo không lỗi thẻ -->
                 <h1>
                     <span id="typing-title"></span>
-                    <span class="static-name">I am MLK</span>
+                    <span class="static-name">I am <span>MLK</span></span>
                 </h1>
                 
                 <div class="hero-bio">
@@ -780,7 +775,7 @@
             displayBox.classList.toggle('show');
         }
 
-        // Hiệu ứng gõ chữ tự động
+        // Hiệu ứng gõ chữ tự động cho phần tiêu đề chào
         const titles = ["Hello Everyone", "Welcome to My World", "Tech & Code Lover"];
         let titleIndex = 0;
         let charIndex = 0;
