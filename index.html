@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLK | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #08080a;
+            color: #ffffff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Đốm sáng nền neon lung linh đa màu */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -15%;
+            left: -10%;
+            width: 45vw;
+            height: 45vw;
+            background: radial-gradient(circle, rgba(255, 0, 127, 0.15) 0%, rgba(8, 8, 10, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -15%;
+            right: -10%;
+            width: 45vw;
+            height: 45vw;
+            background: radial-gradient(circle, rgba(0, 245, 255, 0.12) 0%, rgba(8, 8, 10, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Thanh Menu cố định */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(14, 14, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid #1f1f2e;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Logo MLK 3 màu Neon rực rỡ */
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+            filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.6));
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .logo:hover {
+            filter: drop-shadow(0 0 22px rgba(0, 245, 255, 0.9));
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            position: relative;
+            display: inline-block;
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 10px 22px;
+            border-radius: 20px;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid transparent;
+            transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff007f, #00f5ff);
+            transition: transform 0.4s ease;
+            z-index: -1;
+            border-radius: 20px;
+        }
+
+        nav ul li a:hover::before {
+            transform: translateX(100%);
+        }
+
+        nav ul li a:hover {
+            color: #00f5ff;
+            border-color: #00f5ff;
+            transform: translateY(-3px);
+        }
+
+        nav ul li a.active {
+            color: #ff007f;
+            border-color: #ff007f;
+            background-color: rgba(255, 0, 127, 0.08);
+        }
+
+        .page-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 6%;
+            border-bottom: 1px solid #161622;
+        }
+
+        /* Home Section */
+        .hero-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+        }
+        .hero-content h3 {
+            color: #00f5ff;
+            font-size: 16px;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 245, 255, 0.4);
+        }
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        #typing-title {
+            display: block;
+            min-height: 50px;
+        }
+
+        /* Dòng I am MLK mang 3 màu Neon rực rỡ liên tục */
+        .hero-content .static-name {
+            display: block;
+            margin-top: 5px;
+            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.7));
+            font-weight: 800;
+        }
+
+        .hero-bio {
+            background: linear-gradient(145deg, #14141c, #1a1a26);
+            border-left: 3px solid #ff007f;
+            padding: 14px 20px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 20px;
+            color: #dddddd;
+            font-size: 14px;
+            line-height: 1.6;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+        .stat-box {
+            background: #14141c;
+            border: 1px solid #222233;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 110px;
+            transition: 0.3s;
+        }
+        .stat-box:hover {
+            border-color: #00f5ff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 245, 255, 0.25);
+        }
+        .stat-box h2 {
+            color: #ff007f;
+            font-size: 22px;
+            margin-bottom: 4px;
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+        }
+        .stat-box p {
+            color: #9999bb;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .interactive-skill-box {
+            cursor: pointer;
+        }
+        .interactive-skill-box:active {
+            transform: scale(0.95);
+        }
+
+        .skill-popup-display {
+            background: #14141c;
+            border: 1px dashed #00f5ff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #00f5ff;
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: 0.4s ease;
+            pointer-events: none;
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+        }
+        .skill-popup-display.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff007f, #9d4edd);
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(255, 0, 127, 0.4);
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #ff1a8c, #aa55ef);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 0, 127, 0.7);
+        }
+
+        .hero-img-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+        .hero-box {
+            width: 320px;
+            height: 360px;
+            background: #14141c;
+            border: 2px solid #ff007f;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(255, 0, 127, 0.4);
+            transition: 0.4s ease;
+        }
+        .hero-box:hover {
+            border-color: #00f5ff;
+            box-shadow: 0 0 55px rgba(0, 245, 255, 0.6);
+            transform: scale(1.02);
+        }
+        .hero-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -15px;
+            left: 20px;
+            background: #181824;
+            border: 1px solid #00f5ff;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .floating-badge span {
+            color: #00f5ff;
+            text-shadow: 0 0 8px rgba(0, 245, 255, 0.6);
+        }
+
+        /* About Section */
+        .section-about {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .section-about h2 {
+            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            font-size: 36px;
+            font-weight: 800;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.6));
+        }
+        .about-text {
+            max-width: 800px;
+            margin-bottom: 35px;
+        }
+        .about-text p {
+            color: #cccccc;
+            font-size: 17px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 850px;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #14141c;
+            border: 1px solid #222233;
+            padding: 14px 22px;
+            border-radius: 14px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .social-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: #cccccc;
+            transition: 0.3s ease;
+        }
+
+        /* Hiệu ứng mạng xã hội */
+        .social-btn.github-btn:hover {
+            border-color: #f0f6fc;
+            background-color: rgba(240, 246, 252, 0.12);
+            color: #f0f6fc;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(240, 246, 252, 0.3);
+        }
+        .social-btn.github-btn:hover svg { fill: #f0f6fc; }
+
+        .social-btn.fb-btn:hover {
+            border-color: #1877f2;
+            background-color: rgba(24, 119, 242, 0.15);
+            color: #1877f2;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(24, 119, 242, 0.35);
+        }
+        .social-btn.fb-btn:hover svg { fill: #1877f2; }
+
+        .social-btn.ig-btn:hover {
+            border-color: #e4405f;
+            background-color: rgba(228, 64, 95, 0.15);
+            color: #e4405f;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(228, 64, 95, 0.35);
+        }
+        .social-btn.ig-btn:hover svg { fill: #e4405f; }
+
+        .social-btn.tt-btn:hover {
+            border-color: #00f2fe;
+            background-color: rgba(0, 242, 254, 0.15);
+            color: #00f2fe;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.35);
+        }
+        .social-btn.tt-btn:hover svg { fill: #00f2fe; }
+
+        .social-btn.yt-btn:hover {
+            border-color: #ff0000;
+            background-color: rgba(255, 0, 0, 0.15);
+            color: #ff0000;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.35);
+        }
+        .social-btn.yt-btn:hover svg { fill: #ff0000; }
+
+        /* Projects Section */
+        .section-projects {
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .section-projects h2 {
+            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: 800;
+            filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.5));
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: linear-gradient(145deg, #14141c, #1a1a26);
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid #222233;
+            transition: 0.3s;
+        }
+        .card:hover {
+            border-color: #00f5ff;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 245, 255, 0.25);
+        }
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+            color: #00f5ff;
+            text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
+        }
+        .card p {
+            color: #aaa;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .card a {
+            color: #ff007f;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .card a:hover {
+            color: #00f5ff;
+            text-decoration: underline;
+            text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
+        }
+
+        /* Contact Section */
+        .section-contact {
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .contact-left h2 {
+            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            font-size: 36px;
+            font-weight: 800;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.6));
+        }
+        .contact-left p {
+            color: #cccccc;
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        .email-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #14141c;
+            border: 1px solid #222233;
+            padding: 16px 24px;
+            border-radius: 14px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .email-card-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: #ff007f;
+            filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.6));
+        }
+        .email-card-btn:hover {
+            border-color: #00f5ff;
+            background-color: rgba(0, 245, 255, 0.12);
+            color: #00f5ff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 245, 255, 0.35);
+        }
+        .email-card-btn:hover svg {
+            fill: #00f5ff;
+        }
+
+        .contact-right {
+            background: linear-gradient(145deg, #14141c, #1a1a26);
+            border: 1px solid #222233;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+        .contact-right h3 {
+            background: linear-gradient(135deg, #ff007f, #9d4edd, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.5));
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            width: 100%;
+            background: #08080a;
+            border: 1px solid #222233;
+            padding: 14px 18px;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .form-control:focus {
+            border-color: #00f5ff;
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 110px;
+        }
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #ff007f, #9d4edd);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(255, 0, 127, 0.4);
+        }
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #ff1a8c, #aa55ef);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 0, 127, 0.7);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #14141c;
+            color: #666688;
+            font-size: 14px;
+            border-top: 1px solid #1f1f2e;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh Menu -->
+    <header>
+        <a href="#home" class="logo">MLK</a>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PHẦN 1: HOME -->
+    <section id="home" class="page-section">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <h3>Welcome</h3>
+                
+                <h1>
+                    <span id="typing-title"></span>
+                    <span class="static-name">I am MLK</span>
+                </h1>
+                
+                <div class="hero-bio">
+                    Welcome! I'm Minh, also known online as <strong>MLK</strong>. As a programming student deeply fascinated by technology, I built this space to showcase my mini-projects and cool tech finds. Thanks for visiting, and I hope my experiments can be helpful or spark some inspiration for you!
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <h2>0+</h2>
+                        <p>University Tasks</p>
+                    </div>
+                    <div class="stat-box">
+                        <h2>1+</h2>
+                        <p>Years Coding</p>
+                    </div>
+                    <div class="stat-box interactive-skill-box" onclick="toggleSkills()">
+                        <h2>Skills</h2>
+                        <p>Core Skills (Click)</p>
+                    </div>
+                </div>
+
+                <div id="skillDisplay" class="skill-popup-display">
+                    ⚡ Active Tech Stack: <strong>SQL Server, C++ & Python</strong>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View My Work</a>
+                </div>
+            </div>
+            
+            <div class="hero-img-container">
+                <div class="hero-box">
+                    <img src="images/avatar.jpg" alt="MLK Avatar">
+                </div>
+                <div class="floating-badge">
+                    <span>&lt;/&gt;</span> Clean Code & UI
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHẦN 2: ABOUT -->
+    <section id="about" class="page-section">
+        <div class="section-about">
+            <h2>About Me & Socials</h2>
+            <div class="about-text">
+                <p>I'm a young developer on a mission to conquer the tech world. My core focus lies in code optimization.</p>
+                <p>Beyond university studies and research, I love exploring emerging tech trends, building hands-on mini-projects, sharing personal experiences, and editing random stuff and gaming content. Let's connect via my social channels!</p>
+            </div>
+            <div class="social-links">
+                <!-- GitHub -->
+                <a href="https://github.com/minhlk400-gif" target="_blank" class="social-btn github-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/nguyen.minh.781466/" target="_blank" class="social-btn fb-btn">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Facebook
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/nguyetminhhac/" target="_blank" class="social-btn ig-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    Instagram
+                </a>
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@mizng69" target="_blank" class="social-btn tt-btn">
+                    <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    TikTok
+                </a>
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@mizng-c4l" target="_blank" class="social-btn yt-btn">
+                    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHẦN 3: PROJECTS -->
+    <section id="projects" class="page-section">
+        <div class="section-projects">
+            <h2>Featured Projects & Notes</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>SQL Server Database</h3>
+                    <p>Tổng hợp các kịch bản T-SQL, tối ưu câu lệnh truy vấn và thiết kế cơ sở dữ liệu.</p>
+                    <a href="https://github.com/minhlk400-gif" target="_blank">Explore &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>C/C++ Data Structures</h3>
+                    <p>Giải thuật cấu trúc dữ liệu: danh sách liên kết, ngăn xếp, cây nhị phân.</p>
+                    <a href="https://github.com/minhlk400-gif" target="_blank">Explore &rarr;</a>
+                </div>
+                <div class="card">
+                    <h3>Tech Notes & Bugs</h3>
+                    <p>Nhật ký tự học lập trình và cách khắc phục các lỗi phát sinh trong quá trình code.</p>
+                    <a href="https://github.com/minhlk400-gif" target="_blank">Read more &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHẦN 4: CONTACT -->
+    <section id="contact" class="page-section">
+        <div class="section-contact">
+            <div class="contact-container">
+                <div class="contact-left">
+                    <h2>Contact Me</h2>
+                    <p>Driven by a deep passion for tech—spanning both hardware and software—I'm always open to collaborating on innovative projects. Let's build something great together. Contact me via my professional email.</p>
+                    <a href="mailto:minhlk400@gmail.com" class="email-card-btn">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-4V6l8 5 8-2v2z"/></svg>
+                        minhlk400@gmail.com
+                    </a>
+                </div>
+                <div class="contact-right">
+                    <h3>Send Email</h3>
+                    <form onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã gửi tin nhắn! Email sẽ được kết nối tới minhlk400@gmail.com');">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="What's up bro..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHÂN TRANG -->
+    <footer>
+        <p>© 2026 MLK. Built with GitHub Pages & Passion.</p>
+    </footer>
+
+    <!-- Script tương tác, gõ chữ & tự động đổi active menu -->
+    <script>
+        function toggleSkills() {
+            const displayBox = document.getElementById('skillDisplay');
+            displayBox.classList.toggle('show');
+        }
+
+        // Hiệu ứng gõ chữ tự động
+        const titles = ["Hello Everyone", "Welcome to My World", "Tech & Code Lover"];
+        let titleIndex = 0;
+        let charIndex = 0;
+        const typingTarget = document.getElementById("typing-title");
+
+        function typeWriter() {
+            if (charIndex < titles[titleIndex].length) {
+                typingTarget.innerHTML += titles[titleIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 100);
+            } else {
+                setTimeout(eraseWriter, 2000);
+            }
+        }
+
+        function eraseWriter() {
+            if (charIndex > 0) {
+                typingTarget.innerHTML = titles[titleIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseWriter, 50);
+            } else {
+                titleIndex = (titleIndex + 1) % titles.length;
+                setTimeout(typeWriter, 500);
+            }
+        }
+
+        typeWriter();
+
+        // Tự động cập nhật menu active khi cuộn trang
+        const sections = document.querySelectorAll('.page-section');
+        const navLinks = document.querySelectorAll('header nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
