@@ -3,63 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang cá nhân của Minh</title>
+    <title>MLK | Portfolio</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
+            background-color: #111111;
+            color: #ffffff;
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
         }
+        /* Navbar */
         header {
-            text-align: center;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 1px solid #222;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff3333;
+            letter-spacing: 2px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff3333;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 8%;
+            min-height: 70vh;
+        }
+        .hero-content {
+            max-width: 600px;
+        }
+        .hero-content h3 {
+            color: #888;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .hero-content h1 span {
+            color: #ff3333;
+        }
+        .hero-content p {
+            color: #aaaaaa;
             margin-bottom: 30px;
+            font-size: 16px;
         }
-        h1 { color: #2c3e50; }
+        .btn {
+            display: inline-block;
+            background-color: #ff3333;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        /* Box minh họa bên phải */
+        .hero-box {
+            width: 380px;
+            height: 250px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            box-shadow: 0 10px 30px rgba(255, 51, 51, 0.1);
+        }
+
+        /* Section dự án / ghi chú */
         .section {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 40px 8%;
+            border-top: 1px solid #222;
         }
-        h2 { color: #3498db; border-bottom: 1px solid #eee; padding-bottom: 8px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        a { color: #2980b9; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        .section h2 {
+            color: #ff3333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #181818;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #282828;
+            transition: 0.3s;
+        }
+        .card:hover {
+            border-color: #ff3333;
+        }
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .card p {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .card a {
+            color: #ff3333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #222;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Thanh Menu -->
     <header>
-        <h1>Xin chào, mình là Minh! 👋</h1>
-        <p>Sinh viên CNTT | Đang học lập trình, C/C++, CSDL & làm quen với phát triển web.</p>
+        <div class="logo">MLK.</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="section">
-        <h2>🚀 Dự án nhỏ & Bài tập</h2>
-        <ul>
-            <li><strong>Quản lý cơ sở dữ liệu SQL:</strong> Các kịch bản truy vấn T-SQL và sơ đồ thiết kế CSDL. (<a href="https://github.com/nguyenquangminh" target="_blank">Xem GitHub</a>)</li>
-            <li><strong>Bài tập C/C++:</strong> Giải thuật cấu trúc dữ liệu (Danh sách liên kết, ngăn xếp, cây).</li>
-        </ul>
-    </div>
+    <!-- Phần chính -->
+    <section class="hero">
+        <div class="hero-content">
+            <h3>Welcome</h3>
+            <h1>Hello Everyone<br>I am <span>MLK</span></h1>
+            <p>A Minimalist Tech-Stack Developer & Student. Passionate about learning programming, databases, and building cool web projects.</p>
+            <a href="https://github.com/minhlk400-gif" target="_blank" class="btn">View My Work</a>
+        </div>
+        <div class="hero-box">
+            <p>// Code & Design Area</p>
+        </div>
+    </section>
 
-    <div class="section">
-        <h2>📝 Ghi chú & Góc linh tinh</h2>
-        <ul>
-            <li>Tổng hợp các lỗi (bug) hay gặp và cách fix nhanh.</li>
-            <li>Nhật ký quá trình tự học lập trình mỗi ngày.</li>
-        </ul>
-    </div>
+    <!-- Phần dự án nhỏ -->
+    <section class="section">
+        <h2>🚀 Featured Projects & Notes</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>SQL Server Database</h3>
+                <p>Tổng hợp các kịch bản T-SQL, tối ưu câu lệnh truy vấn và thiết kế cơ sở dữ liệu.</p>
+                <a href="https://github.com/minhlk400-gif" target="_blank">Explore &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>C/C++ Data Structures</h3>
+                <p>Giải thuật cấu trúc dữ liệu: danh sách liên kết, ngăn xếp, cây nhị phân.</p>
+                <a href="https://github.com/minhlk400-gif" target="_blank">Explore &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Tech Notes & Bugs</h3>
+                <p>Nhật ký tự học lập trình và cách khắc phục các lỗi phát sinh trong quá trình code.</p>
+                <a href="https://github.com/minhlk400-gif" target="_blank">Read more &rarr;</a>
+            </div>
+        </div>
+    </section>
 
-    <footer style="text-align: center; margin-top: 40px; color: #777; font-size: 0.9em;">
-        <p>© 2026 Nguyễn Quang Minh. Built with GitHub Pages.</p>
+    <!-- Chân trang -->
+    <footer>
+        <p>© 2026 MLK. Built with GitHub Pages & Passion.</p>
     </footer>
 
 </body>
